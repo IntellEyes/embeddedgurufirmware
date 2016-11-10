@@ -1,0 +1,82 @@
+
+<====== DOCUMENTATION FOR EMBEDDEDGURU PROGRAM =====>
+
+Author(s)
+=========
+
+Rajath Kumar K S
+
+List of Files:
+==============
+
+1. check_connection.py
+2. erase_flash.py
+3. write_flash.py
+4. open_serial.py
+
+Terminalogy:
+===========
+
+<port_number> = Port Number where ESP8266 Connected to the System
+<firm_ware> = Where your Firmware Version that you've got from www.micropython.org/downloads
+
+Checking Port No. of ESP8266 Connected to the PC:
+-------------------------------------------------
+
+Manual Way:
+^^^^^^^^^^^
+
+	$dmesg | grep tty
+
+With EmbeddedGuru Program:
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+	$python check_connection.py
+
+
+Opening a Serial port for ESP8266:
+----------------------------------
+
+Manual Way:
+----------
+
+	$sudo minicom -D <port_number>
+
+With EmbeddedGuru Program:
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+	$python open_serial.py <port_number>
+
+
+Erasing Flash on the ESP8266:
+-----------------------------
+
+Manual Way:
+----------
+
+	$sudo esptool.py --port <port_number> erase_flash
+
+With EmbeddedGuru Program:
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+	$python erase_flash.py <port_number>
+
+
+Writing Flash on the ESP8266:
+-----------------------------
+
+Manual Way:
+----------
+
+	$sudo esptool.py --port <port_number> --baud 460800 write_flash --flash_size=8m 0 <firm_ware>
+
+With EmbeddedGuru Program:
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+	$python write_flash.py <port_number> <firm_ware>
+
+******
+*NOTE*
+******
+
+	Before Writing Flash You Must Erase Flash which is Already on the ESP8266.
